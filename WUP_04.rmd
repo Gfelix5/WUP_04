@@ -11,6 +11,7 @@ output:
 require(knitr)
 require(tidyverse)
 require(tigerstats)
+require(stats)
 thedata<-read.csv(file="GSScsv.csv")
 
 ```
@@ -104,6 +105,35 @@ print(comparison)
 
 ```
 Based on the chart, HS to graduate, and LT HS to graduate are two degrees that are different in each set of differences. 
+
+```{r}
+# Assuming you have the "thedata" data frame with "DEGREE" and "WORDSUM" columns
+
+# Perform one-way ANOVA
+result <- aov(WORDSUM ~ DEGREE, data = thedata)
+
+# Perform multiple comparisons using the Benjamini-Hochberg procedure
+comparison <- pairwise.t.test(thedata$WORDSUM, thedata$DEGREE, p.adjust.method = "fdr")
+
+# Print the adjusted p-values and confidence intervals
+print(comparison$p.value)
+print(comparison$conf.int)
+
+```
+
+```{r}
+# Assuming you have the "thedata" data frame with "DEGREE" and "WORDSUM" columns
+
+
+# Perform one-way ANOVA
+result <- aov(WORDSUM ~ DEGREE, data = thedata)
+
+# Print the comparison table
+print(comparison)
+
+```
+
+
 
 # Discussion and Conclusion
 
