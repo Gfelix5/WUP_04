@@ -64,21 +64,16 @@ ggplot(thedata, aes(x = DEGREE, y = WORDSUM, fill = DEGREE)) +
         axis.title = element_text(color = "black"))
 
 ```
-
-
-# Assuming you have the "thedata" data frame with "DEGREE" and "WORDSUM" columns
-
-
-# Load the ggplot2 library
-
-
-# Create a fancy box plot
-
-<!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+LT HS would overlap with junior college or graduate, thus showing that it is very likely to be different schooling. In addition graduate does no overlap with high school, therefore it is likely to be different. LT HS and and graduate are not only different from one another they are both different than another type of schooling, such as HS or Junior College.
 
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+```{r}
+favstats(WORDSUM~DEGREE,data=thedata)
+```
+The average score on the WORDSUM test for graduates was a little over 10. There's a difference between the average score in graduate school and the average score in junior college. This further proves that the school are different in results. 
 
 ## Inferential Results
 
